@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+
+
+ <button  class="A"> 点击 ajax</button>
+
+
+ <button  class="B" > 点击 ajax</button>
+
+
+
+    <script>
+
+        var letGo;
+        $('button.A').click(function () {
+            $.ajax({
+                type: "POST",
+                url: "http://localhost/JWT/request.php",
+                success: function(msg){
+                    console.log(msg);
+
+                    localStorage.ssa = msg
+
+                }
+            })
+        })
+
+        $('button.B').click(function () {
+
+            $.ajax({
+                type: "POST",
+                headers: {
+                    "AAA":'123123',
+                    "Access-Control-Allow-Headers":"X-Requested-With"
+                },
+
+                url: "http://localhost/JWT/response.php",
+                data: 'code='+localStorage.ssa,
+                success: function(msg){
+                    console.log(msg);
+                }
+            })
+        })
+
+
+    </script>
+</body>
+</html>
