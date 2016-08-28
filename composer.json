@@ -1,4 +1,9 @@
 {
+       "packages": [
+        {
+            "name": "yunji7/JWT",
+        }
+        ],
     "require": {
         "firebase/php-jwt": "^4.0"
     }
